@@ -1,0 +1,9 @@
+.gray {
+  color: gray;
+  border-left: 2px gray solid;
+  padding-left: 3%;
+}
+
+.main {
+  grid-column: span 2;
+}
