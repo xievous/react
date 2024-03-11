@@ -1,13 +1,11 @@
 import React from "react";
 import "./cart.css";
-import cart from "../Product/Product.jsx";
 
-const Cart = () => {
+const Cart = ({ amount }) => {
   return (
     <div className="cart">
-      <img src="" alt="" />
       <p className="cart__name">Cart</p>
-      <p className="amount">{cart}</p>
+      <p className="amount">{amount}</p>
     </div>
   );
 };

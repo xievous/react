@@ -1,6 +1,6 @@
 .products {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .card {
