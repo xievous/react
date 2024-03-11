@@ -1,22 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./searchmovie.css";
-import { useState } from "react";
 
-const SearchMovie = (props) => {
+const SearchMovie = ({ setMovies }) => {
   const [query, setQuery] = useState("Hej");
-  const { setMovies } = props;
+  const [errorMessage, setErrorMessage] = useState("");
 
-  function handleInput(event) {
+  const handleInput = (event) => {
     setQuery(event.target.value);
-  }
+  };
 
-  async function handleClick() {
+  const handleClick = async () => {
     const URL = "http://www.omdbapi.com/?apikey=37fe945a";
     const response = await fetch(`${URL}&s=${query}`);
     const data = await response.json();
     console.log(data);
-    setMovies(data.Search);
-  }
+    if (data.Search) {
+      setMovies(data.Search);
+      setErrorMessage(""); // Clear error message if movies are found
+    } else {
+      setMovies([]); // Set movies to empty array when no movie found
+      setErrorMessage("No movies found."); // Set error message
+    }
+  };
 
   return (
     <div>
@@ -25,6 +30,7 @@ const SearchMovie = (props) => {
         <input type="text" id="search" onKeyUp={handleInput} />
         <button onClick={handleClick}>Sök film</button>
       </section>
+      {errorMessage && <p>{errorMessage}</p>}
     </div>
   );
 };

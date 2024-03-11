@@ -8,6 +8,8 @@ const Inputs = () => {
     tip: 0,
   });
 
+  const [totalExpense, setTotalExpense] = useState(0); // State to store total expense
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -20,9 +22,9 @@ const Inputs = () => {
     event.preventDefault();
 
     const { sum, friends, tip } = formData;
-    const totalExpense =
+    const calculatedExpense =
       (parseFloat(sum) * parseFloat(tip) + parseFloat(sum)) / parseInt(friends);
-    console.log(totalExpense);
+    setTotalExpense(calculatedExpense); // Update totalExpense state
   };
 
   return (
@@ -53,6 +55,7 @@ const Inputs = () => {
           onChange={handleInputChange}
         />
         <button type="submit">Räkna</button>
+        <p>{totalExpense}</p> {/* Display totalExpense from state */}
       </form>
     </div>
   );
