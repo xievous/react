@@ -9,7 +9,6 @@
   align-items: center;
   background-color: #ffffff;
   border-radius: 5px;
-  height: 45vh;
 }
 
 .card__title {
@@ -29,9 +28,15 @@
   color: #ffffff;
   background-color: turquoise;
   margin-top: auto;
-  margin-bottom: 10%;
+  margin-bottom: 0;
   border-style: none;
   height: 15%;
   width: 35%;
   border-radius: 6px;
+}
+
+img {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 20vw;
 }

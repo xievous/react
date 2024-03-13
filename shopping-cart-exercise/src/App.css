@@ -8,5 +8,5 @@ body {
 .products {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 8%;
+  grid-gap: 5px;
 }

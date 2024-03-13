@@ -4,19 +4,18 @@ import Product from "./components/Product/Product";
 import { useState } from "react";
 import "./App.css";
 
+const amount = useState(0);
+
+function addToCart() {
+  amount + 1;
+}
+
 const App = () => {
-  const [amount, setAmount] = useState(0);
-
-  function addToCart() {
-    setAmount(amount + 1);
-    console.log(amount + 1);
-  }
-
   return (
     <div>
-      <Cart amount={amount} />
+      <Cart />
       <section>
-        <Product addToCart={addToCart} />
+        <Product />
       </section>
     </div>
   );
